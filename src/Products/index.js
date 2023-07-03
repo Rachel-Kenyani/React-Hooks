@@ -70,7 +70,7 @@ const Products = () => {
         <div className="category">
             {products.map(item => (
                 <div className="card" key ={item.id}>
-                    <img src={item.thumbnail}></img>
+                    <img src={item.thumbnail} alt={product.title}></img>
                     <Link to="/product1"><h3 className="title">{item.title}</h3></Link>
                     <p>KSH.{item.price}.00</p>
                     <p>{item.discountPercentage}%</p>
