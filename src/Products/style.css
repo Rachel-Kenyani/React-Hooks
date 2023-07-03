@@ -47,6 +47,11 @@
     padding: 8px 15px;
     margin-left: 45%;
 }
+.button:hover{
+    background-color: transparent;
+    border: 1px solid rgb(102, 50, 102);
+    color: rgb(102, 50, 102);
+}
 .category{
     margin-top: 1%;
     display: flex;
