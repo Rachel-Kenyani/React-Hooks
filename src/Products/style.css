@@ -39,6 +39,14 @@
 .nav > .link > a:hover {
     color: #8BC746;
 }
+.button{
+    background-color: rgb(102, 50, 102);
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 15px;
+    margin-left: 45%;
+}
 .category{
     margin-top: 1%;
     display: flex;

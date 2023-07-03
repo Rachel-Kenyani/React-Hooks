@@ -1,43 +1,42 @@
-import React,{useState, useEffect} from "react";
-
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 const Product1 = () => {
-    const [products, setProducts] = useState([]);
-    const [loading,setLoading]= useState(false);
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
 
-    useEffect(()=>{
-        (async()=>{
-            await getProducts()
-        })();
-    },[])
+  useEffect(() => {
+    const getProduct1 = async () => {
+      try {
+        const response = await fetch(`https://dummyjson.com/product/${id}`);
+        const result = await response.json();
+        setProduct(result);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-    const getProducts=async()=>{
-        setLoading(true)
-        try{
-            const response= await fetch('https://dummyjson.com/products')
-       const result=await response.json();
-       setProducts(result.products)
-       setLoading(false)
+    getProduct1();
+  }, [id]);
 
-        }
-        catch(error){
-            console.log(error.message);
-        }
-       
-    }
-    console.log({products});
-    if (loading){
-        return <h1>Loading.......</h1>
-    }
-    return(
-        <div>
-            {products.map(item => (
-                <div key ={item.id}>
-                    <h3>{item.title}</h3>
-                    {/* <img src={item.images}></img> */}
-                </div>
-            ))}
-        </div>
-    );
-}
+  if (!product) {
+    return <p>Loading...</p>;
+  }
+
+  return (
+    <div>
+      <h1>Product Details</h1>
+      <div>
+        <img src={product.thumbnail} alt={product.title} />
+        <h2>{product.title}</h2>
+        <p>{product.brand}</p>
+        <p>{product.price}</p>
+        <p>{product.description}</p>
+        <p>{product.discountPercentage}</p>
+        <h4>{product.rating}</h4>
+      </div>
+    </div>
+  );
+};
+
 export default Product1;

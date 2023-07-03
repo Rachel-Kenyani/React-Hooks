@@ -20,9 +20,6 @@ function App() {
       <Route path="/products/*" element={<Products />} />
       <Route path="/product1/*" element={<Product1 />} />
 
-        {/* <Route path="/" element={<Home />} />
-        <Route path="/blog/*" element={<BlogApp />} />
-        <Route path="/users/*" element={<UserApp />} /> */}
       </Routes>
     </BrowserRouter>
     </div>

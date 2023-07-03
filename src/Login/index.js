@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import './style.css'
-import { FaRegUser} from "react-icons/fa6";
+import {FaRegUser,FaSistrix} from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const Login = () => {
@@ -32,6 +32,14 @@ const Login = () => {
 
     return(
         <div className="body">
+            <nav className="nav">
+                <div><h1 className="h1">Kiosk</h1></div>
+                <div class="link">
+                    <a href="#home">Home</a>
+                    <Link to="/login"><a href="#icon1" className="icon1"><FaSistrix fill="antiquewhite" /></a></Link>
+                    <Link to="/login"><a href="#icon1" className="icon1"><FaRegUser fill="antiquewhite" /></a></Link>
+                </div>
+            </nav>
         <form className="form" onSubmit={handleSubmit}>
             <FaRegUser fill="antiquewhite" className='yellow'/>
             <h1>Login</h1>

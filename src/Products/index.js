@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 import {FaRegUser,FaSistrix} from "react-icons/fa6";
 import './style.css'
 
-
 const Products = () => {
     const [products, setProducts] = useState([]);
     const [loading,setLoading]= useState(false);
+    const [product, setProduct] = useState({
+        title: "",
+        price: "",
+        discountPercentage: ""
+    });
 
     useEffect(()=>{
         (async()=>{
@@ -25,13 +29,32 @@ const Products = () => {
         }
         catch(error){
             console.log(error.message);
-        }
-       
+        }       
     }
     console.log({products});
-    if (loading){
-        return <h1 className="load">Loading.......</h1>
-    }
+        if (loading){
+            return <h1>Loading.......</h1>
+        }
+
+    const handleAddProduct = async (e) => {
+        e.preventDefault();
+        const newProduct = {
+            title: product.title,
+            price: product.price,
+            discountPercentage: product.discountPercentage
+        };
+        await fetch('https://dummyjson.com/products/add', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newProduct)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            setProduct([...products, newProduct]);
+        });
+    };
+
     return(
         <div>
             <nav className="nav">
@@ -42,6 +65,7 @@ const Products = () => {
                     <Link to="/login"><a href="#icon1" className="icon1"><FaRegUser fill="antiquewhite" /></a></Link>
                 </div>
             </nav>
+            <button className="button" onClick={handleAddProduct}>Add a product</button>
 
         <div className="category">
             {products.map(item => (
@@ -56,4 +80,4 @@ const Products = () => {
         </div>
     );
 }
-export default Products
+export default Products;
