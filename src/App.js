@@ -1,11 +1,10 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Login from './Login';
 import Products from './Products';
 import Product1 from './Product1';
 import {
   BrowserRouter,
-  Link,
   Route,
   Routes,
 } from "react-router-dom";
