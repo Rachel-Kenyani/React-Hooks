@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import './style.css';
 
 const ProductDetails = () => {
   // Get the product ID from the URL parameters.
@@ -24,18 +25,18 @@ const ProductDetails = () => {
 
   // Otherwise, show the product details.
   return (
-    <div>
-      <h1>{product.title}</h1>
-      <img src={product.thumbnail} alt={product.title} />
-      <p>KSH.{product.price}.00</p>
-      <p>{product.discountPercentage}%</p>
-      <p>{product.description}</p>
-      <p>{product.category}</p>
-      <p>{product.brand}</p>
-      <p>{product.rating}</p>
-     
-      <button>Add to Cart</button>
-    </div>
+    <div className="product">
+  <h1 className="product-title">{product.title}</h1>
+  <img src={product.thumbnail} alt={product.title} />
+  <p className="product-price">KSH.{product.price}.00</p>
+  <p className="product-discount">{product.discountPercentage}%</p>
+  <p className="product-description">{product.description}</p>
+  <p className="product-category">{product.category}</p>
+  <p className="product-brand">{product.brand}</p>
+  <p className="product-rating">{product.rating}</p>
+  <button className="product-add-to-cart">Add to Cart</button>
+</div>
+
   );
 };
 

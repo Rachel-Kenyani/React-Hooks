@@ -34,40 +34,40 @@ const Products = () => {
     }
   
     //Define a function called `handleAddProduct` that handles the submission of the add product form.
-    const handleAddProduct = async (e) => {
-      e.preventDefault();
-      const newProduct = {
-        title: products.title,
-        thumbnail: products.thumbnail,
-        price: products.price,
-        discountPercentage: products.discountPercentage
-      };
-      try {
-        const response = await fetch('https://dummyjson.com/products/add', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(newProduct)
-        });
-        const data = await response.json();
-        console.log(data);
-        setProducts([...products, newProduct]);
-        setProducts({
-          title: "",
-          thumbnail: "",
-          price: "",
-          discountPercentage: ""
-        });
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
+    // const handleAddProduct = async (e) => {
+    //   e.preventDefault();
+    //   const newProduct = {
+    //     title: products.title,
+    //     thumbnail: products.thumbnail,
+    //     price: products.price,
+    //     discountPercentage: products.discountPercentage
+    //   };
+    //   try {
+    //     const response = await fetch('https://dummyjson.com/products/add', {
+    //       method: 'POST',
+    //       headers: { 'Content-Type': 'application/json' },
+    //       body: JSON.stringify(newProduct)
+    //     });
+    //     const data = await response.json();
+    //     console.log(data);
+    //     setProducts([...products, newProduct]);
+    //     setProducts({
+    //       title: "",
+    //       thumbnail: "",
+    //       price: "",
+    //       discountPercentage: ""
+    //     });
+    //   } catch (error) {
+    //     console.log(error.message);
+    //   }
+    // };
   
-    const handleInputChange = (e) => {
-      setProducts({
-        ...products,
-        [e.target.name]: e.target.value
-      });
-    };
+    // const handleInputChange = (e) => {
+    //   setProducts({
+    //     ...products,
+    //     [e.target.name]: e.target.value
+    //   });
+    // };
   
     return (
       <div>
@@ -90,7 +90,7 @@ const Products = () => {
           </div>
         </nav>
   
-        <form className="form" onSubmit={handleAddProduct}>
+        {/* <form className="form" onSubmit={handleAddProduct}>
           <input
             type="text"
             placeholder="Title"
@@ -120,7 +120,7 @@ const Products = () => {
             onChange={handleInputChange}
           />
           <button type="submit">Add Product</button>
-        </form>
+        </form> */}
   
         <div className="category">
           {products.map(item => (

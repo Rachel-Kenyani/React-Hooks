@@ -47,3 +47,8 @@
     border: solid 2px rgb(102, 50, 102);
     
 }
+.link > ul{
+    text-decoration: none;
+    list-style: none;
+
+}
